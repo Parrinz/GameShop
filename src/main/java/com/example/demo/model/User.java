@@ -10,13 +10,13 @@ import javax.persistence.Id;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	@Column(nullable=false)
 	private String username;
 	@Column(nullable=false)
-	private String nome;
+	private String name;
 	@Column(nullable=false)
-	private String cognome;
+	private String surname;
 	@Column(nullable=false)
 	private String password;
 	
@@ -25,27 +25,26 @@ public class User {
 	
 	
 
-	public User(int id, String username, String nome, String cognome, String password) {
+	public User(int id, String username, String name, String surname, String password) {
 		this.id = id;
 		this.username = username;
-		this.nome = nome;
-		this.cognome = cognome;
+		this.name = name;
+		this.surname = surname;
 		this.password = password;
 	}
 
 
 
-	public User(String username, String nome, String cognome, String password) {
-		super();
+	public User(String username, String name, String surname, String password) {
 		this.username = username;
-		this.nome = nome;
-		this.cognome = cognome;
+		this.name = name;
+		this.surname = surname;
 		this.password = password;
 	}
 
 
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -53,19 +52,19 @@ public class User {
 		return username;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public String getCognome() {
-		return cognome;
+	public String getSurname() {
+		return surname;
 	}
 
 	public String getPassword() {
 		return password;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -73,12 +72,12 @@ public class User {
 		this.username = username;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	public void setPassword(String password) {

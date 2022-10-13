@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,6 +27,16 @@ public class User {
 
 	public User(int id, String username, String nome, String cognome, String password) {
 		this.id = id;
+		this.username = username;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.password = password;
+	}
+
+
+
+	public User(String username, String nome, String cognome, String password) {
+		super();
 		this.username = username;
 		this.nome = nome;
 		this.cognome = cognome;

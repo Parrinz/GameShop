@@ -12,7 +12,7 @@ public class UserService {
 	UserRepository repo;
 	
 	public User addUser(User user) {
-		if(!repo.cercaUsername(user.getUsername())) {
+		
 		try {
 			user = repo.save(user);
 			return user;
@@ -20,6 +20,10 @@ public class UserService {
 		catch(Exception e) {
 			return null;
 		}
-		}else return null;
+	}
+	
+	public User loginUser(String username, String password) {
+		User u=repo.login(username, password);
+		return u;
 	}
 }

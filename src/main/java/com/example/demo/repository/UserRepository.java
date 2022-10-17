@@ -8,7 +8,8 @@ import com.example.demo.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-	@Query("SELECT u from User u WHERE u.username=:username")
-	public boolean cercaUsername(String username);
-
+	@Query("select u from User u where u.username = :username and u.password = :password")
+	public User login(String username, String password);
+	
+	
 }

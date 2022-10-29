@@ -8,37 +8,42 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String username;
-	@Column(nullable=false, unique = true)
+	@Column(nullable = false, unique = true)
 	private String name;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String surname;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String password;
+	@Column(nullable = false)
+	private int userType;
 	
 	public User() {
 	}
 	
 
-	public User(int id, String username, String name, String surname, String password) {
+	public User(int id, String username, String name, String surname, String password, int userType) {
 		this.id = id;
 		this.username = username;
 		this.name = name;
 		this.surname = surname;
 		this.password = password;
+		this.userType = userType;
 	}
 
 	
 
-	public User(String username, String name, String surname, String password) {
+	public User(String username, String name, String surname, String password, int userType) {
 		this.username = username;
 		this.name = name;
 		this.surname = surname;
 		this.password = password;
+		this.userType = userType;
 	}
 
 	
@@ -68,6 +73,12 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
+	
+	public int getUserType() {
+		return userType;
+	}
+	
+	
 
 	public void setId(long id) {
 		this.id = id;
@@ -89,5 +100,7 @@ public class User {
 		this.password = password;
 	}
 	
-	
+	public void setUserType(int userType) {
+		this.userType = userType;
+	}
 }

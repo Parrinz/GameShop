@@ -26,7 +26,8 @@ public class UserController {
 			User u = new User(	request.getUsername(),
 								request.getName(),
 								request.getSurname(),
-								request.getPassword());
+								request.getPassword(),
+								request.getUserType());
 			if(service.addUser(u)!=null) {
 				return ResponseEntity.status(HttpStatus.OK).build();
 			}

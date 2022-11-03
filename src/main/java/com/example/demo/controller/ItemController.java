@@ -26,11 +26,16 @@ public class ItemController {
 								request.getItemType(),
 								request.getPublishDate(),
 								service.findUser(request.getPublisherUsername(), request.getPublisherPassword()));
-			if(service.addItem(i)!=null) {
-				return ResponseEntity.status(HttpStatus.OK).build();
+			if(i.getPublisher().getUserType()==1) {
+				if(service.addItem(i)!=null) {
+					return ResponseEntity.status(HttpStatus.OK).build();
+				}
+				else {
+					return ResponseEntity.status(HttpStatus.CONFLICT).build();
+				}
 			}
 			else {
-				return ResponseEntity.status(HttpStatus.CONFLICT).build();
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 			}
 		}
 		else {

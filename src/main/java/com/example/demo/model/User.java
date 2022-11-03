@@ -1,10 +1,13 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -22,6 +25,8 @@ public class User {
 	private String password;
 	@Column(nullable = false)
 	private int userType;
+	@OneToMany(mappedBy="publisher")
+    private List<Item> items;
 	
 	public User() {
 	}
